@@ -8,133 +8,139 @@ w=white y=yellow b=blue g=green o=orange r=red
 | 3 | 2 |
 ---------
 """
-class rubik :
-    def __init__(self,cube) :
-        self.color=cube
-        self.moveoption=["f","f'","b","b'","u","u'","d","d'","r","r'","l","l'"]
-    def f(self,accent=False) :
-        if accent :
-            self.color['f'][3],self.color['f'][0],self.color['f'][1],self.color['f'][2]=self.color['f'][0],self.color['f'][1],self.color['f'][2],self.color['f'][3]
-            self.color['l'][2],self.color['l'][1],self.color['u'][3],self.color['u'][2],self.color['r'][0],self.color['r'][3],self.color['d'][1],self.color['d'][0]=self.color['u'][3],self.color['u'][2],self.color['r'][0],self.color['r'][3],self.color['d'][1],self.color['d'][0],self.color['l'][2],self.color['l'][1]
-            return
-        self.color['f'][0],self.color['f'][1],self.color['f'][2],self.color['f'][3]=self.color['f'][3],self.color['f'][0],self.color['f'][1],self.color['f'][2]
-        self.color['u'][3],self.color['u'][2],self.color['r'][0],self.color['r'][3],self.color['d'][1],self.color['d'][0],self.color['l'][2],self.color['l'][1]=self.color['l'][2],self.color['l'][1],self.color['u'][3],self.color['u'][2],self.color['r'][0],self.color['r'][3],self.color['d'][1],self.color['d'][0]
-    
-    def b(self,accent=False) :
-        if accent :
-            self.color['b'][3],self.color['b'][0],self.color['b'][1],self.color['b'][2]=self.color['b'][0],self.color['b'][1],self.color['b'][2],self.color['b'][3]
-            self.color['r'][2],self.color['r'][1],self.color['u'][1],self.color['u'][0],self.color['l'][0],self.color['l'][3],self.color['d'][3],self.color['d'][2]=self.color['u'][1],self.color['u'][0],self.color['l'][0],self.color['l'][3],self.color['d'][3],self.color['d'][2],self.color['r'][2],self.color['r'][1]
-            return
-        self.color['b'][0],self.color['b'][1],self.color['b'][2],self.color['b'][3]=self.color['b'][3],self.color['b'][0],self.color['b'][1],self.color['b'][2]
-        self.color['u'][1],self.color['u'][0],self.color['l'][0],self.color['l'][3],self.color['d'][3],self.color['d'][2],self.color['r'][2],self.color['r'][1]=self.color['r'][2],self.color['r'][1],self.color['u'][1],self.color['u'][0],self.color['l'][0],self.color['l'][3],self.color['d'][3],self.color['d'][2]
-    
-    def u(self,accent=False) :
-        if accent :
-            self.color['u'][3],self.color['u'][0],self.color['u'][1],self.color['u'][2]=self.color['u'][0],self.color['u'][1],self.color['u'][2],self.color['u'][3]
-            self.color['r'][1],self.color['r'][0],self.color['f'][1],self.color['f'][0],self.color['l'][1],self.color['l'][0],self.color['b'][1],self.color['b'][0]=self.color['f'][1],self.color['f'][0],self.color['l'][1],self.color['l'][0],self.color['b'][1],self.color['b'][0],self.color['r'][1],self.color['r'][0]
-            return
-        self.color['u'][0],self.color['u'][1],self.color['u'][2],self.color['u'][3]=self.color['u'][3],self.color['u'][0],self.color['u'][1],self.color['u'][2]
-        self.color['f'][1],self.color['f'][0],self.color['l'][1],self.color['l'][0],self.color['b'][1],self.color['b'][0],self.color['r'][1],self.color['r'][0]=self.color['r'][1],self.color['r'][0],self.color['f'][1],self.color['f'][0],self.color['l'][1],self.color['l'][0],self.color['b'][1],self.color['b'][0]
-    
-    def d(self,accent=False) :
-        if accent :
-            self.color['d'][3],self.color['d'][0],self.color['d'][1],self.color['d'][2]=self.color['d'][0],self.color['d'][1],self.color['d'][2],self.color['d'][3]
-            self.color['l'][3],self.color['l'][2],self.color['f'][3],self.color['f'][2],self.color['r'][3],self.color['r'][2],self.color['b'][3],self.color['b'][2]=self.color['f'][3],self.color['f'][2],self.color['r'][3],self.color['r'][2],self.color['b'][3],self.color['b'][2],self.color['l'][3],self.color['l'][2]
-            return
-        self.color['d'][0],self.color['d'][1],self.color['d'][2],self.color['d'][3]=self.color['d'][3],self.color['d'][0],self.color['d'][1],self.color['d'][2]
-        self.color['f'][3],self.color['f'][2],self.color['r'][3],self.color['r'][2],self.color['b'][3],self.color['b'][2],self.color['l'][3],self.color['l'][2]=self.color['l'][3],self.color['l'][2],self.color['f'][3],self.color['f'][2],self.color['r'][3],self.color['r'][2],self.color['b'][3],self.color['b'][2]
-    
-    def r(self,accent=False) :
-        if accent :
-            self.color['r'][3],self.color['r'][0],self.color['r'][1],self.color['r'][2]=self.color['r'][0],self.color['r'][1],self.color['r'][2],self.color['r'][3]
-            self.color['d'][2],self.color['d'][1],self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3]=self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3],self.color['d'][2],self.color['d'][1]
-            return
-        
-        self.color['r'][0],self.color['r'][1],self.color['r'][2],self.color['r'][3]=self.color['r'][3],self.color['r'][0],self.color['r'][1],self.color['r'][2]
-        self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3],self.color['d'][2],self.color['d'][1]=self.color['d'][2],self.color['d'][1],self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3]
-        
-    def r(self,accent=False) :
-        if accent :
-            self.color['r'][3],self.color['r'][0],self.color['r'][1],self.color['r'][2]=self.color['r'][0],self.color['r'][1],self.color['r'][2],self.color['r'][3]
-            self.color['d'][2],self.color['d'][1],self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3]=self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3],self.color['d'][2],self.color['d'][1]
-            return
-        
-        self.color['r'][0],self.color['r'][1],self.color['r'][2],self.color['r'][3]=self.color['r'][3],self.color['r'][0],self.color['r'][1],self.color['r'][2]
-        self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3],self.color['d'][2],self.color['d'][1]=self.color['d'][2],self.color['d'][1],self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3]    
-    
-    def l(self,accent=False) :
-        if accent :
-            self.color['r'][3],self.color['r'][0],self.color['r'][1],self.color['r'][2]=self.color['r'][0],self.color['r'][1],self.color['r'][2],self.color['r'][3]
-            self.color['d'][2],self.color['d'][1],self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3]=self.color['f'][2],self.color['f'][1],self.color['u'][2],self.color['u'][1],self.color['b'][0],self.color['b'][3],self.color['d'][2],self.color['d'][1]
-            return
-        
-        self.color['l'][0],self.color['l'][1],self.color['l'][2],self.color['l'][3]=self.color['l'][3],self.color['l'][0],self.color['l'][1],self.color['l'][2]
-        self.color['f'][0],self.color['f'][3],self.color['d'][0],self.color['d'][3],self.color['b'][2],self.color['b'][1],self.color['u'][0],self.color['u'][3]=self.color['u'][0],self.color['u'][3],self.color['f'][0],self.color['f'][3],self.color['d'][0],self.color['d'][3],self.color['b'][2],self.color['b'][1]
-        
-    def issolved(self) :
-        return sum([len(set(self.color[i])) for i in ['f','b','u','d','r','l']])==6
-    
-    def solve(self) :
-        if self.issolved() :
-            return
-        self.original=str(self.color)
-        self.list1={}
-        self.list2={}
-        self.list={}
-        for i in ['f','b','u','d','r','l'] :
-            for j in [False,True] :
-                exec(f"self.{i}(accent=j)")
-                if self.issolved() :
-                    return
-                self.list1[f"{i}'" if j else f"{i}"]=(str(self.color))
-                self.list[f"{i}'" if j else f"{i}"]=(str(self.color))
-                self.color=eval(self.original)
-                
-        for i in self.list1 :
-            self.color=eval(self.list1[i])
-            if self.issolved() :
-                return i
-        while True :
-            self.list2={}
-            for i in self.list1 :
-                for j in ['f','b','u','d','r','l'] :
-                    for k in [False,True] :
-                        self.color=eval(self.list1[i])
-                        exec(f"self.{j}(accent=k)")
-                        
-                        self.move=i+' '+((j+"'") if k else j)
-                        if self.move not in self.list.values() :
-                            self.list2[self.move]=str(self.color)
-                            self.list[self.move]=str(self.color)
-                        self.color=eval(self.original)
-            
-            for i in self.list2 :
-                self.color=eval(self.list2[i])
-                if self.issolved() :
-                    return i
-                
-            self.list1={}
-            for i in self.list2 :
-                for j in ['f','b','u','d','r','l'] :
-                    for k in [False,True] :
-                        self.color=eval(self.list2[i])
-                        exec(f"self.{j}(accent=k)")
-                        self.move=i+' '+((j+"'") if k else j)
-                        if self.move not in self.list.values() :
-                            self.list1[self.move]=str(self.color)
-                            self.list[self.move]=str(self.color)
-                        self.color=eval(self.original)
-                        
-            for i in self.list1 :
-                self.color=eval(self.list1[i])
-                if self.issolved() :
-                    return i
 
+def replace(string,index,new) :
+    return string[:index]+new+string[index+1:]
+
+class Rubik :
+    def __init__(self,color) :
+        self.color=color
+        
+    def F(self) :
+        temp=self.color[3]
+        self.color=replace(self.color,3,self.color[2])
+        self.color=replace(self.color,2,self.color[1])
+        self.color=replace(self.color,1,self.color[0])
+        self.color=replace(self.color,0,temp)
+
+        temp=self.color[11]
+        self.color=replace(self.color,11,self.color[22])
+        self.color=replace(self.color,22,self.color[13])
+        self.color=replace(self.color,13,self.color[16])
+        self.color=replace(self.color,16,temp)
+
+        temp=self.color[21]
+        self.color=replace(self.color,21,self.color[12])
+        self.color=replace(self.color,12,self.color[19])
+        self.color=replace(self.color,19,self.color[10])
+        self.color=replace(self.color,10,temp)
+
+    def R(self) :
+        temp=self.color[19]
+        self.color=replace(self.color,19,self.color[18])
+        self.color=replace(self.color,18,self.color[17])
+        self.color=replace(self.color,17,self.color[16])
+        self.color=replace(self.color,16,temp)
+
+        temp=self.color[2]
+        self.color=replace(self.color,2,self.color[14])
+        self.color=replace(self.color,14,self.color[4])
+        self.color=replace(self.color,4,self.color[10])
+        self.color=replace(self.color,10,temp)
+
+        temp=self.color[1]
+        self.color=replace(self.color,1,self.color[13])
+        self.color=replace(self.color,13,self.color[7])
+        self.color=replace(self.color,7,self.color[9])
+        self.color=replace(self.color,9,temp)
+
+    def U(self) :
+        temp=self.color[11]
+        self.color=replace(self.color,11,self.color[10])
+        self.color=replace(self.color,10,self.color[9])
+        self.color=replace(self.color,9,self.color[8])
+        self.color=replace(self.color,8,temp)
+
+        temp=self.color[1]
+        self.color=replace(self.color,1,self.color[17])
+        self.color=replace(self.color,17,self.color[5])
+        self.color=replace(self.color,5,self.color[21])
+        self.color=replace(self.color,21,temp)
+
+        temp=self.color[0]
+        self.color=replace(self.color,0,self.color[16])
+        self.color=replace(self.color,16,self.color[4])
+        self.color=replace(self.color,4,self.color[20])
+        self.color=replace(self.color,20,temp)
+    
+    def solved(self) :
+        for i in range(6) :
+            first=self.color[i*4]
+            for j in range(4) :
+                if self.color[i*4+j]!=first :
+                    return False
+        return True
+    
+    def solve(self) : 
+        s=self.getMoves()
+        s2=""
+        col=s[0]
+        cnt=0
+        for i in range(len(s)) :
+            if s[i]==col :
+                cnt+=1
+            else :
+                if cnt==1 :
+                    s2+=col+" "
+                elif cnt==2 :
+                    s2+=col+"2 "
+                elif cnt==3 :
+                    s2+=col+"' "
+                col=s[i]
+                cnt=1
+        if cnt==1 :
+            s2+=col+" "
+        elif cnt==2 :
+            s2+=col+"2 "
+        elif cnt==3 :
+            s2+=col+"' "
+        return s2
+        
+        
+    def getMoves(self) :
+        if self.solved() :
+            return ""
+        
+        original=self.color
+        moves1, moves2, list1, list2 = [], [], [], []
+        
+        for moveIdx in range(3) :
+            self.color=original
+            move=["F","U","R"][moveIdx]
+            exec("self."+move+"()")
+            if self.solved() :
+                print(self.color)
+                return move
+            list1.append(self.color)
+            moves1.append(move)
+        
+        while True :
+            moves2, list2 = [], []
+            for cnt in range(len(moves1)) :
+                for moveIdx in range(3) :
+                    self.color=list1[cnt]
+                    move=["F","U","R"][moveIdx]
+                    exec("self."+move+"()")
+                    if self.solved() :
+                        return moves1[cnt]+move
+                    list2.append(self.color)
+                    moves2.append(moves1[cnt]+move)
+            list1, moves1 = list2.copy(), moves2.copy()
+            
+        
+        
 if __name__=='__main__' :
-    r=rubik({'f':['r','r','o','y'],
-            'b':['y','o','w','r'],
-            'u':['g','r','b','b'],
-            'd':['b','w','g','o'],
-            'r':['y','g','w','b'],
-            'l':['y','w','o','g']})
+    # f b u d r l
+    color="obbygyrgrwowowrwyoyrbbgg" # R F2 R2 F U2 R F2 
+    r=Rubik(color) 
     print(r.solve())
