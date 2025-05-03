@@ -1,6 +1,8 @@
 # rubiks-cube-solver
 
-Turn ClockWise :<br />
+![Net](Net.png)
+
+Clockwise:<br />
 f=front <br />
 b=back <br />
 u=up <br />
@@ -8,7 +10,7 @@ d=down <br />
 r=right <br />
 l=left<br />
 <br />
-Turn CounterClockWise :<br />
+Counterclockwise:<br />
 f'=front <br />
 b'=back <br />
 u'=up <br />
@@ -16,7 +18,7 @@ d'=down <br />
 r'=right <br />
 l'=left<br />
 <br />
-Rubik's Cube Color :<br />
+Color:<br />
 w=white <br />
 y=yellow <br />
 b=blue <br />
